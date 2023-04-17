@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mapper DTD 선언 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL Mapping -->
+<mapper namespace="org.spring.mybatis.repository.UserRepository">
+
+    <!-- id = repository 해당 메소드명 -->
+    <!-- value = 파라미터타입 변수명 -->
+    <insert id="userInsert" parameterType="org.spring.mybatis.dto.UserDto">
+        insert into User(email,password,name)
+        values(#{email}, #{password}, #{name}) ;
+    </insert>
+
+                          <!-- 결과값을 반환-->
+    <select id="userList" resultType="org.spring.mybatis.dto.UserDto">
+        select* from user;
+
+    </select>
+</mapper>
